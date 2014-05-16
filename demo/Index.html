@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<title>dropjs</title>
+		<meta name="description" value="A simple drag and drop javascript" />
+		<meta name="keywords" value="drag, drop, js, javascript, files, urls" />
+
+		<!-- Styles -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,100,100italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../dropjs.js"></script>
+		
+	</head>
+	<body>
+
+		<div id="wrapper">
+			<div id="content">
+
+				<header>
+					<h1>dropjs</h1>
+					<h2>Drag and drop files on that happy drop</h2>
+				</header>			
+
+				<!-- The drop area, will get the class .hover when files are beeing dragd -->
+				<div class="dropjs">
+
+					<div class="dropped-files"></div>
+
+					<!-- Inner is hidden by default and visible when .dropjs gets 
+						 its .hover class. This is not controlled by the script -->
+					<div class="inner">
+						<h2>Drop files here</h2>
+						<div class="mustache"></div>
+						<h3>CSS, Javascript or mustache images</h3>
+					</div>
+
+				</div>
+
+				<footer>
+					<p>
+						Created by Andreas Älveborn (<a href="http://aelveborn.com" target="_blank">aelveborn.com</a>), licensed under MIT. Contribute on <a href="https://github.com/aelveborn/dropjs" target="_blank">Github</a>.
+					</p>
+				</footer>
+
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+
+			$('.dropjs').dropjs({
+				fileTypes: ["text/html", "application/javascript", "text/css", "image/jpeg", "image/gif", "image/png" ],				
+				onDrop: dropFiles
+			});
+
+			// onDrop runs when files is dropped
+			function dropFiles(files) {
+
+				// Prints out the dropped files and their information
+				var output = "<h3>These files were dropped</h3>";
+
+				$.each(files, function(index, file) {
+					output += file.name + "<br />" + 
+							  file.size + " bytes<br />" +
+							  file.type + "<br />";
+				});
+
+				$('.dropped-files').html(output);
+
+
+				// Reading files
+				$.each(files, function(index, file) {
+					var reader = new FileReader();
+
+					// Runs asynchronous
+					reader.onload = function(e) {
+						console.log(reader.result);	// Writes out the file to console
+					}
+
+					reader.readAsText(file);
+					//reader.readAsDataURL(this);
+					//reader.readAsBinaryString(this);
+					//reader.readAsArrayBuffer(this);
+				});
+
+			};
+
+		</script>
+	</body>
+</html>

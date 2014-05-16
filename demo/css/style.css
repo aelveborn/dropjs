@@ -1,0 +1,115 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #242424;
+	background-color: #fafafa;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+
+a {
+	color: #777;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #242424;
+	border-bottom: dashed 1px #242424;
+}
+
+#wrapper {
+	width: 100%;
+}
+
+#content {
+	width: 700px;
+	margin: 0 auto;	
+}
+
+header {
+	margin: 3.2em 0 5em;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 7em;
+	font-weight: 100;
+	text-align: center;
+}
+
+header h2 {
+	color: #ccc;
+	font-weight: 300;
+	font-style: italic;
+	text-align: center;
+}
+
+footer {
+	margin: 7em auto 2em;
+}
+
+.dropjs {
+	position: relative;
+
+	padding: 30px;
+	height: 350px;
+
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 5px 0 #CFCFCF;
+	box-shadow: 0 0 5px 0 #CFCFCF;
+
+	background: #fff url(../design/icon_8133.svg) no-repeat center;
+	background-size: 300px 300px;
+}
+
+.dropjs.hover {
+	background-image: none;
+}
+
+.dropjs.hover .inner {
+	display: inherit;
+	margin: 0.5%;
+	width: 99%;
+	height: 99%;
+	border: dashed 2px #ccc;
+
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.dropjs .inner {
+	display: none;
+
+}
+
+.dropjs .inner h2,
+.dropjs .inner h3 {
+	color: #ccc;
+	text-align: center;
+}
+
+.dropjs .inner h2 {
+	font-size: 4em;
+	font-weight: 100;
+	margin: 0.8em 0 1em;
+}
+
+.dropjs .inner h3 {
+	font-size: 1.5em;
+	font-weight: 300;
+	font-style: italic;
+	color: #242424;
+}
+
+.dropjs .inner .mustache {
+	width: 200px;
+	height: 50px;
+	margin: 3em auto 0;
+	background: #fff url(../design/icon_3189.svg) no-repeat center;
+	background-size: 200px 50px;
+}
+
+.dropped-files {
+	position: absolute;
+}
